@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Wheel Of Lunch</title>
+    <!-- WinJS references -->
+    <link rel="stylesheet" href="/winjs/css/ui-light.css" />
+    <script src="/winjs/js/base.js"></script>
+    <script src="/winjs/js/ui.js"></script>
+        <script src="/winjs/js/binding.js"></script>
+        <script src="/winjs/js/controls.js"></script>
+        <script src="/winjs/js/res.js"></script>
+        <script src="/winjs/js/animations.js"></script>
+        <script src="/winjs/js/uicollections.js"></script>
+    <script src="/winjs/js/wwaapp.js"></script>
+    <!-- WheelOfLunch references -->
+    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/css/splitPage.css" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <div id="itemTemplate" data-win-control="WinJS.Binding.Template" >
+        <div data-win-bind="innerText: resturantName">
+        </div>
+        <div data-win-bind="innerText: resturantAddress">
+        </div>
+        <div data-win-bind="innerText: resturantPhone">
+        </div>
+        <div data-win-bind="innerText: topCategory">
+        </div>
+        <img  data-win-bind="alt: averageRating; src: smallAverageRatingImgURL" />
+    </div>
+    <div class="splitPage fragment">
+        <header role="banner" aria-label="Header content">
+            <!--<button disabled class="win-backbutton" aria-label="Back"></button>            -->
+            <h1 class="pageTitle win-title">Wheel of Lunch</h1>
+        </header>        
+        <section class="itemListSection">
+            <button id="spin">Select a Resturant</button>
+            <div id="rList" class="itemList" data-win-control="WinJS.UI.ListView" 
+                data-win-options="{oniteminvoked: itemInvoked, itemRenderer: itemTemplate, layout: {type: WinJS.UI.ListLayout}, selectionMode: 'none'}" >
+            </div>
+        </section>
+        <section class="articleSection" aria-live="assertive" aria-atomic="true" aria-label="Item detail">
+            <header class="header">
+                <div class="image"> <img id="restImage" alt="Resturant Image" /><br /><img id="lgRatingImg" alt="Resturant Rating" /></div><!-- data-win-bind="style.backgroundColor: backgroundColor; style.backgroundImage: backgroundImage; alt: title"></div>-->
+                <div class="text">
+                    <h1 class="title win-contentTitle" id="mainRestName" />                    
+                    <h2 class="subtitle win-itemText" id="address" />
+                    <h2 class="subtitle win-itemText" id="phone" />                                        
+                </div>
+            </header>
+            <article class="content">
+                <p class="description" id="categories"></p>
+                <a class="subtitle win-timeText" id="restUrl">Click here for more information</a>
+                <h3>Reviews:</h3>   
+                <ul id="reviews">
+                    
+                </ul>
+            </article>        
+        </section>
+    </div>    
+</body>
+</html>
